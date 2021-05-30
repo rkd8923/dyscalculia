@@ -2,7 +2,7 @@ import ProblemLayout from "components/ProblemLayout";
 import React, { useEffect, useState } from "react";
 import { problemData } from "utils/problemData";
 
-function Exam() {
+function Exam({ history }) {
   const [problem, setProblem] = useState(null);
   const [isEnd, setIsEnd] = useState(false);
 
@@ -16,6 +16,12 @@ function Exam() {
       }));
     }
   }
+
+  useEffect(() => {
+    if (isEnd) {
+      history.push("report");
+    }
+  }, [isEnd, history]);
 
   useEffect(() => {
     console.log("END");

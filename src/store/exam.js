@@ -1,9 +1,11 @@
 const SET_RESULT = "exam/SET_RESULT";
+const SET_INIT = "exam/SET_INIT";
 
 export const setResult = (type, result) => ({
   type: SET_RESULT,
   payload: { type, result },
 });
+export const setInit = () => ({ type: SET_INIT });
 
 const initialState = {
   count: 0,
@@ -24,6 +26,8 @@ const exam = (state = initialState, action) => {
         };
       }
       return { ...state };
+    case SET_INIT:
+      return { ...initialState };
     default:
       return { ...state };
   }
