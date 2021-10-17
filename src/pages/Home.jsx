@@ -20,6 +20,7 @@ function Home({ history }) {
   return (
     <HomeWrapper>
       <Title>Dyscalculia</Title>
+      <ButtonGroup></ButtonGroup>
       <StyledButton onClick={goToDescription}>
         What is Dyscalculia?
       </StyledButton>
@@ -32,7 +33,7 @@ const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   background-image: url(${bg});
   background-size: cover;
   width: 100%;
@@ -51,7 +52,13 @@ const Title = styled.div`
   height: 10rem;
   opacity: 0.8;
 `;
-
+const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 100px;
+`;
 const StyledButton = styled.div`
   display: flex;
   align-items: center;
@@ -66,6 +73,9 @@ const StyledButton = styled.div`
   cursor: pointer;
   &:hover {
     opacity: 1;
+  }
+  & + & {
+    margin-top: 40px;
   }
 `;
 export default Home;
