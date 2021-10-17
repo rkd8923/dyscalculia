@@ -11,7 +11,7 @@ import Type8 from "components/problems/Type8";
 import Type9 from "components/problems/Type9";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setResult } from "store/exam";
+import { setResult } from "store/test";
 import styled from "styled-components";
 
 function ProblemLayout({ problem, next }) {

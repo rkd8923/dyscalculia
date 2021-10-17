@@ -1,14 +1,14 @@
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-function AnswerInput({ handlerSubmit }) {
-  const [value, setValue] = useState("");
+function AnswerInput({ inputAnswer, setInputAnswer, handleSubmit }) {
+  // const [value, setValue] = useState("");
 
-  function handlerValue(event) {
+  function handleValue(event) {
     const v = event.target.value;
-    setValue(v);
+    setInputAnswer(v);
   }
 
   return (
@@ -16,16 +16,12 @@ function AnswerInput({ handlerSubmit }) {
       <div className="answer">Answer:</div>
       <TextField
         id="answer"
-        value={value}
+        value={inputAnswer}
         variant="outlined"
-        onChange={handlerValue}
+        onChange={handleValue}
         type="number"
       />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => handlerSubmit(value)}
-      >
+      <Button variant="contained" color="primary" onClick={handleSubmit}>
         Submit
       </Button>
     </AnswerWrapper>
