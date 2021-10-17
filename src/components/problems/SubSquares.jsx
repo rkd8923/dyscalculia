@@ -3,18 +3,20 @@ import { Layer, Line, Rect, Stage, Text } from "react-konva";
 import styled from "styled-components";
 import { getRandomInt } from "utils/utils";
 
-export default function SubSquares({ setAnswer }) {
+export default function SubSquares({ setAnswer, setTitle }) {
   const [number1, setNumber1] = useState(0);
   const [number2, setNumber2] = useState(0);
 
   useEffect(() => {
-    if (!setAnswer) return;
+    if (!setAnswer || !setTitle) return;
     const n1 = getRandomInt(2, 9);
     const n2 = getRandomInt(1, n1);
+    setTitle("How many Dots?");
+
     setNumber1(n1);
     setNumber2(n2);
     setAnswer(n1 - n2);
-  }, [setAnswer]);
+  }, [setAnswer, setTitle]);
 
   const redRect = [
     { x: 330, y: 44, v: 1 <= number1 },

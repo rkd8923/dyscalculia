@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getRandomInt } from "utils/utils";
 
-export default function Memorization({ setAnswer }) {
+export default function Memorization({ setAnswer, setTitle }) {
   const [number, setNumber] = useState("");
   const [show, setShow] = useState(false);
   useEffect(() => {
-    if (!setAnswer) return;
+    if (!setAnswer || !setTitle) return;
+    setTitle("Remember the numbers on the screen.");
     const length = getRandomInt(4, 8);
     let temp = "";
     for (let i = 0; i < length; i++) {
@@ -14,7 +15,7 @@ export default function Memorization({ setAnswer }) {
     }
     setNumber(temp);
     setAnswer(temp);
-  }, [setAnswer]);
+  }, [setAnswer, setTitle]);
 
   useEffect(() => {
     if (number) {
@@ -36,9 +37,16 @@ export default function Memorization({ setAnswer }) {
 }
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  width: 660px;
+  justify-content: center;
+  width: 600px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 40px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-bottom: 40px;
 `;
 const Number = styled.div`
   width: 250px;

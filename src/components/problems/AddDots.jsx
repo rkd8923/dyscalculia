@@ -3,16 +3,16 @@ import { Circle, Layer, Stage } from "react-konva";
 import styled from "styled-components";
 import { getRandomCoord, getRandomInt } from "utils/utils";
 
-export default function AddDots({ setAnswer }) {
+export default function AddDots({ setAnswer, setTitle }) {
   const [dotList1, setDotList1] = useState({});
   const [dotList2, setDotList2] = useState({});
 
   useEffect(() => {
-    if (!setAnswer) return;
+    if (!setAnswer || !setTitle) return;
     const number1 = getRandomInt(1, 9);
     const number2 = getRandomInt(1, 9);
+    setTitle("How many Dots?");
     setAnswer(number1 + number2);
-
     for (let i = 0; i < number1; i++) {
       const coord = getRandomCoord(300, 300, 15);
       const key = "blue" + i;
@@ -47,7 +47,7 @@ export default function AddDots({ setAnswer }) {
         ),
       }));
     }
-  }, [setAnswer]);
+  }, [setAnswer, setTitle]);
 
   return (
     <Container>

@@ -3,11 +3,12 @@ import { Circle, Layer, Stage } from "react-konva";
 import styled from "styled-components";
 import { getRandomCoord, getRandomInt } from "utils/utils";
 
-function CountingDots({ colorCount, setAnswer }) {
+function CountingDots({ colorCount, setAnswer, setTitle }) {
   const [dotList, setDotList] = useState({});
 
   useEffect(() => {
-    if (!colorCount || colorCount < 1 || !setAnswer) return;
+    if (!colorCount || colorCount < 1 || !setAnswer || !setTitle) return;
+    setTitle(`How many ${colorCount > 1 ? "blue" : ""} DOTS are there?`);
     const colorList = ["blue", "red", "green"];
     for (let i = 0; i < colorCount; i++) {
       const color = colorList[i];
@@ -31,7 +32,7 @@ function CountingDots({ colorCount, setAnswer }) {
         }));
       }
     }
-  }, [colorCount, setAnswer]);
+  }, [colorCount, setAnswer, setTitle]);
 
   return (
     <Wrapper>

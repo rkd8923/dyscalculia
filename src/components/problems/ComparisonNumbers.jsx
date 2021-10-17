@@ -3,19 +3,20 @@ import { Layer, Stage, Text } from "react-konva";
 import styled from "styled-components";
 import { getRandomInt } from "utils/utils";
 
-export default function ComparisonNumbers({ setAnswer }) {
+export default function ComparisonNumbers({ setAnswer, setTitle }) {
   const [number1, setNumber1] = useState(0);
   const [number2, setNumber2] = useState(0);
 
   useEffect(() => {
-    if (!setAnswer) return;
+    if (!setAnswer || !setTitle) return;
+    setTitle("Which number is larger?");
     const n1 = getRandomInt(1, 10);
     let n2 = getRandomInt(0, 10);
     n2 = n1 === n2 ? n1 - 1 : n2;
     setNumber1(n1);
     setNumber2(n2);
     setAnswer(n1 > n2 ? n1 : n2);
-  }, [setAnswer]);
+  }, [setAnswer, setTitle]);
 
   return (
     <Wrapper>

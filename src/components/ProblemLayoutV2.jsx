@@ -1,5 +1,5 @@
 import bg from "assets/images/background/exam.jpg";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setResult } from "store/test";
 import styled from "styled-components";
@@ -13,28 +13,37 @@ import CountingDots from "./problems/CountingDots";
 import Memorization from "./problems/Memorization";
 import SubSquares from "./problems/SubSquares";
 
-function ProblemLayoutV2({ type, count, next }) {
+function ProblemLayoutV2({ type, count, next, allCount }) {
   const dispatch = useDispatch();
   const [answer, setAnswer] = useState("");
   const [inputAnswer, setInputAnswer] = useState("");
+  const [title, setTitle] = useState("");
 
   const ProblemComponent = useMemo(() => {
     if (count < 0) return null;
     const problemComponents = {
       type1: [
-        <CountingDots colorCount={1} setAnswer={setAnswer} />,
-        <CountingDots colorCount={2} setAnswer={setAnswer} />,
+        <CountingDots
+          colorCount={1}
+          setAnswer={setAnswer}
+          setTitle={setTitle}
+        />,
+        <CountingDots
+          colorCount={2}
+          setAnswer={setAnswer}
+          setTitle={setTitle}
+        />,
       ],
       type2: [
-        <ComparisonDots setAnswer={setAnswer} />,
-        <ComparisonNumbers setAnswer={setAnswer} />,
+        <ComparisonDots setAnswer={setAnswer} setTitle={setTitle} />,
+        <ComparisonNumbers setAnswer={setAnswer} setTitle={setTitle} />,
       ],
       type3: [
-        <AddDots setAnswer={setAnswer} />,
-        <AddSquares setAnswer={setAnswer} />,
-        <SubSquares setAnswer={setAnswer} />,
+        <AddDots setAnswer={setAnswer} setTitle={setTitle} />,
+        <AddSquares setAnswer={setAnswer} setTitle={setTitle} />,
+        <SubSquares setAnswer={setAnswer} setTitle={setTitle} />,
       ],
-      type4: [<Memorization setAnswer={setAnswer} />],
+      type4: [<Memorization setAnswer={setAnswer} setTitle={setTitle} />],
     };
     const componentNumber = getRandomInt(0, problemComponents[type].length);
 
@@ -48,12 +57,9 @@ function ProblemLayoutV2({ type, count, next }) {
     next();
   }
 
-  useEffect(() => {
-    console.log(answer);
-  }, [answer]);
-
   return (
     <ProblemWrapper>
+      <Title>{allCount + ". " + title}</Title>
       <ProblemComponent />
       <AnswerInput
         inputAnswer={inputAnswer}
@@ -74,5 +80,10 @@ const ProblemWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background-image: url(${bg});
-  background-size: contain;
+  background-size: cover;
+`;
+
+const Title = styled.span`
+  font-size: 40px;
+  font-weight: 600;
 `;

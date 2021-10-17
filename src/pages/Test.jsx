@@ -9,8 +9,10 @@ export default function Test({ history }) {
   const [type, setType] = useState(0);
   const [count, setCount] = useState(-1);
   const [isEnd, setIsEnd] = useState(false);
+  const [allCount, setAllCount] = useState(1);
 
   function goToNextProblem() {
+    setAllCount((prev) => prev + 1);
     if (count >= 9 && type >= 3) {
       setIsEnd(true);
     } else if (count >= 9) {
@@ -35,6 +37,7 @@ export default function Test({ history }) {
           type={typeList[type]}
           count={count}
           next={goToNextProblem}
+          allCount={allCount}
         />
       )}
     </>

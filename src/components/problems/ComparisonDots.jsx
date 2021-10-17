@@ -3,12 +3,14 @@ import { Circle, Layer, Stage } from "react-konva";
 import styled from "styled-components";
 import { getRandomCoord, getRandomInt } from "utils/utils";
 
-export default function ComparisonDots({ setAnswer }) {
+export default function ComparisonDots({ setAnswer, setTitle }) {
   const [dotList1, setDotList1] = useState({});
   const [dotList2, setDotList2] = useState({});
 
   useEffect(() => {
-    if (!setAnswer) return;
+    if (!setAnswer || !setTitle) return;
+    setTitle("Which one has more dots? Please enter 1 or 2.");
+
     const number1 = getRandomInt(2, 12);
     let number2 = getRandomInt(1, 12);
     number2 = number1 === number2 ? number1 - 1 : number2;
@@ -48,7 +50,7 @@ export default function ComparisonDots({ setAnswer }) {
         ),
       }));
     }
-  }, [setAnswer]);
+  }, [setAnswer, setTitle]);
 
   return (
     <Container>
