@@ -1,7 +1,5 @@
 import bg from "assets/images/background/exam.jpg";
 import React, { useMemo, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setResult } from "store/test";
 import styled from "styled-components";
 import { getRandomInt } from "utils/utils";
 import AddDots from "./problems/AddDots";
@@ -13,8 +11,7 @@ import CountingDots from "./problems/CountingDots";
 import Memorization from "./problems/Memorization";
 import SubSquares from "./problems/SubSquares";
 
-function ProblemLayoutV2({ type, count, next, allCount }) {
-  const dispatch = useDispatch();
+function ProblemLayoutV2({ type, count, next, allCount, submit }) {
   const [answer, setAnswer] = useState("");
   const [inputAnswer, setInputAnswer] = useState("");
   const [title, setTitle] = useState("");
@@ -51,8 +48,7 @@ function ProblemLayoutV2({ type, count, next, allCount }) {
   }, [type, count]);
 
   function handleSubmit() {
-    const result = +answer === +inputAnswer;
-    dispatch(setResult(type, count, result));
+    submit(answer, inputAnswer);
     setInputAnswer("");
     next();
   }

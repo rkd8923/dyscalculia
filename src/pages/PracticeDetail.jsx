@@ -2,25 +2,19 @@ import ProblemLayoutV2 from "components/ProblemLayoutV2";
 import TypeDescription from "components/TypeDescription";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setResult } from "store/test";
-/*
-  type1, ... , type4
-*/
-export default function Test({ history }) {
+import { setResult } from "store/practice";
+
+export default function PracticeDetail({ history, location }) {
   const dispatch = useDispatch();
-  const typeList = ["type1", "type2", "type3", "type4"];
-  const [type, setType] = useState(0);
+  const type = location?.state?.type;
   const [count, setCount] = useState(-1);
   const [isEnd, setIsEnd] = useState(false);
   const [allCount, setAllCount] = useState(1);
 
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
-    if (count >= 9 && type >= 3) {
-      setIsEnd(true);
-    } else if (count >= 9) {
-      setType((prev) => prev + 1);
-      setCount(-1);
+    if (count >= 9) {
+      setIsEnd(-1);
     } else {
       setCount((prev) => prev + 1);
     }
@@ -28,7 +22,7 @@ export default function Test({ history }) {
 
   function submit(answer, inputAnswer) {
     const result = +answer === +inputAnswer;
-    dispatch(setResult(type, count, result));
+    dispatch(setResult(count, result));
   }
 
   if (isEnd) return <div>isEnd</div>;
@@ -37,12 +31,12 @@ export default function Test({ history }) {
     <>
       {count === -1 ? (
         <TypeDescription
-          type={typeList[type]}
+          type={type}
           next={() => setCount((prev) => prev + 1)}
         />
       ) : (
         <ProblemLayoutV2
-          type={typeList[type]}
+          type={type}
           count={count}
           next={goToNextProblem}
           allCount={allCount}
