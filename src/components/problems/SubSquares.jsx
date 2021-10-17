@@ -111,7 +111,7 @@ export default function SubSquares({ setAnswer, setTitle }) {
               x={x}
               y={y}
               visible={v}
-              key={"react" + x + y}
+              key={"red" + x + y}
             />
           ))}
           {blueRect.map(({ x, y, v }) => (
@@ -122,7 +122,7 @@ export default function SubSquares({ setAnswer, setTitle }) {
               x={x}
               y={y}
               visible={v}
-              key={"react" + x + y}
+              key={"blue" + x + y}
             />
           ))}
           {resultRect.map(({ x, y, v }) => (
@@ -133,7 +133,7 @@ export default function SubSquares({ setAnswer, setTitle }) {
               x={x}
               y={y}
               visible={v}
-              key={"react" + x + y}
+              key={"result" + x + y}
             />
           ))}
         </Layer>

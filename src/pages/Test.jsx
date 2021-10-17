@@ -17,7 +17,7 @@ export default function Test({ history }) {
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
     if (count >= 9 && type >= 3) {
-      setIsEnd(true);
+      history.push("/report");
     } else if (count >= 9) {
       setType((prev) => prev + 1);
       setCount(-1);
@@ -28,7 +28,7 @@ export default function Test({ history }) {
 
   function submit(answer, inputAnswer) {
     const result = +answer === +inputAnswer;
-    dispatch(setResult(type, count, result));
+    dispatch(setResult(typeList[type], count, result));
   }
 
   if (isEnd) return <div>isEnd</div>;

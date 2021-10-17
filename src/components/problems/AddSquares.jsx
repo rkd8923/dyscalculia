@@ -195,7 +195,7 @@ export default function AddSquares({ setAnswer, setTitle }) {
               x={x}
               y={y}
               visible={v}
-              key={"react"}
+              key={"result" + x + y}
             />
           ))}
         </Layer>

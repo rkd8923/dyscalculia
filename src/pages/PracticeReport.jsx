@@ -3,19 +3,33 @@ import bg from "assets/images/background/report.jpg";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { reportDescriptionType1 } from "utils/text";
+import {
+  reportDescriptionType1,
+  reportDescriptionType2,
+  reportDescriptionType3,
+  reportDescriptionType4,
+} from "utils/text";
 
-function Report({ history }) {
-  const test = useSelector((state) => state.test);
+function PracticeReport({ history, location }) {
+  const type = location?.state?.type;
+  const test = useSelector((state) => state.practice);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   return () => {
-  //     dispatch(setInit());
-  //   };
-  // });
-  function getResult(type) {
-    const result = test.result[type];
+  const title = {
+    type1: "Counting",
+    type2: "Comparison",
+    type3: "Arithmetic",
+    type4: "Memorization",
+  };
+  const description = {
+    type1: reportDescriptionType1,
+    type2: reportDescriptionType2,
+    type3: reportDescriptionType3,
+    type4: reportDescriptionType4,
+  };
+
+  function getResult() {
+    const result = test.result;
     return [...result].reduce((a, b) => a + b, 0);
   }
 
@@ -26,26 +40,10 @@ function Report({ history }) {
   return (
     <ReportWrapper>
       <ReportPaper>
-        <Title>Counting Test Result</Title>
-        <MainText>{reportDescriptionType1}</MainText>
-        <ResultText>{`· You scored ${getResult(
-          "type1"
-        )} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
-        <Title>Comparison Test Result</Title>
-        <MainText>{reportDescriptionType1}</MainText>
-        <ResultText>{`· You scored ${getResult(
-          "type2"
-        )} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
-        <Title>Arithmetic Test Result</Title>
-        <MainText>{reportDescriptionType1}</MainText>
-        <ResultText>{`· You scored ${getResult(
-          "type3"
-        )} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
-        <Title>Memorization Test Result</Title>
-        <MainText>{reportDescriptionType1}</MainText>
-        <ResultText>{`· You scored ${getResult(
-          "type4"
-        )} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
+        <Title>{`${title[type]} Test Result`}</Title>
+        <MainText>{description[type]}</MainText>
+        <ResultText>{`· You scored ${getResult()} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
+
         <ButtonArea>
           <Button
             variant="contained"
@@ -108,4 +106,4 @@ const ButtonArea = styled.div`
   justify-content: center;
 `;
 
-export default Report;
+export default PracticeReport;

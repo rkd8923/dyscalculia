@@ -14,7 +14,7 @@ export default function PracticeDetail({ history, location }) {
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
     if (count >= 9) {
-      setIsEnd(-1);
+      history.push({ pathname: "/practice/report", state: { type } });
     } else {
       setCount((prev) => prev + 1);
     }

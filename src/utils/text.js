@@ -12,3 +12,12 @@ export const typeText3 =
   "This test asks you about counting number of dots quickly.";
 export const typeText4 =
   "This test asks you about counting number of dots quickly.";
+
+export const reportDescriptionType1 =
+  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+export const reportDescriptionType2 =
+  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+export const reportDescriptionType3 =
+  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+export const reportDescriptionType4 =
+  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
