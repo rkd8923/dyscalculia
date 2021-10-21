@@ -11,7 +11,7 @@ export default function SubSquares({ setAnswer, setTitle }) {
     if (!setAnswer || !setTitle) return;
     const n1 = getRandomInt(2, 9);
     const n2 = getRandomInt(1, n1);
-    setTitle("How many Dots?");
+    setTitle("How many dots are there?");
 
     setNumber1(n1);
     setNumber2(n2);
