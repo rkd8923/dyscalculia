@@ -1,8 +1,12 @@
 export const definition1 =
-  "Dyscalculia is a specific and persistent difficulty in understanding numbers which can lead to a diverse range of difficulties with mathematics. It will be unexpected in relation to age, level of education and experience and occurs across all ages and abilities.";
+  "Dyscalculia is a learning disability in math. People with  have trouble with math at many levels. They often struggle with key concepts like bigger vs. smaller. And they can have a hard time doing basic math problems and more abstract math.";
 export const definition2 =
-  "Mathematics difficulties are best thought of as a continuum, not a distinct category, and they have many causal factors. Dyscalculia falls at one end of the spectrum and will be distinguishable from other maths issues due to the severity of difficulties with number sense, including subitising, symbolic and non-symbolic magnitude comparison, and ordering. It can occur singly but often co-occurs with other specific learning difficulties, mathematics anxiety and medical conditions. ";
-export const definition3 = "BDA/SASC (2019)";
+  "Difficulty with math happens at all levels. It can be as hard to learn addition as it is to learn algebra. Basic concepts like quantities can also be a challenge.";
+export const definition3 =
+  "People don’t outgrow dyscalculia. Kids who have a hard time with math may continue to struggle with it as adults. But there are strategies that can help them improve math skills and manage the challenges. Which leads to the fact that it is very important to find out dyscalcuila in early age";
+export const definition4 =
+  "Butterworth, B. (2018). Dyscalculia: From Science to Education (1st ed.). Routledge.";
+export const definitionLink = "https://doi.org/10.4324/9781315538112";
 
 export const typeText1 =
   "This test asks you about counting number of dots quickly.";

@@ -27,7 +27,6 @@ function Home({ history }) {
         <StyledButton
           variant="outlined"
           size="large"
-          color="secondary"
           style={{ textTransform: "none" }}
           onClick={goToDescription}
         >
@@ -36,7 +35,6 @@ function Home({ history }) {
         <StyledButton
           variant="outlined"
           size="large"
-          color="secondary"
           style={{ textTransform: "none" }}
           onClick={goToTest}
         >
@@ -45,7 +43,6 @@ function Home({ history }) {
         <StyledButton
           variant="outlined"
           size="large"
-          color="secondary"
           style={{ textTransform: "none" }}
           onClick={goToPractice}
         >
@@ -96,9 +93,6 @@ const StyledButton = styled(Button)`
   width: 90%;
   height: 4rem;
   text-transform: none;
-  /* &:hover {
-    opacity: 1;
-  } */
   & + & {
     margin-top: 3rem;
   }
