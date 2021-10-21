@@ -9,19 +9,19 @@ export const definition4 =
 export const definitionLink = "https://doi.org/10.4324/9781315538112";
 
 export const typeText1 =
-  "This test asks you about counting number of dots quickly.";
+  "This test asks you about number of dots displayed on the screen. You have a 10-second time limt to answer each question";
 export const typeText2 =
-  "This test asks you about counting number of dots quickly.";
+  "This test asks you to compare two different figures or numbers. You have a 10-second time limit to answer each question";
 export const typeText3 =
-  "This test asks you about counting number of dots quickly.";
+  "This test asks you to quickly calculate simple arithmetic problems. You have a 10-second time limit to answer each question";
 export const typeText4 =
-  "This test asks you about counting number of dots quickly.";
+  "This test asks you to memorzie the number displayed on the screen quickly. The number will be disappeared shortly after you start a question.";
 
 export const reportDescriptionType1 =
-  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+  "Students with a low counting ability usually has trouble learning to count. And they also struggles to connect a number to an object, such as knowing that '3' applies  to groups of things like 3 cakes, 3 cars, or 3 friends. Since counting is the very basic ability to understand mathmetical concepts, it is very likely that you will have difficulty at math if you failed to pass this test.";
 export const reportDescriptionType2 =
-  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+  "Students with a low comparing ability usually struggles to recognize patterns, like smallest to largest or tallest to shortest. And they also may have a tough time understanding math phrases, like greater than and less than. Since comparing is the very basic ability to understand mathmetical concepts, it is very likely that you will have difficulty at math if you failed to pass this test.";
 export const reportDescriptionType3 =
-  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+  "Student with low arithmetical abilities  ability shows symptoms to use fingers to count instead of using more advanced strategies like mental math. This leads them to have trouble learning and recalling basic math facts, like 2 + 4 = 6";
 export const reportDescriptionType4 =
-  "Student with low counting ability shows symptoms of using fingers or misrepresenting the number in daily life. Since it is the basic ability of many other mathematical abilities, it is very likely that you will have difficulty mathematically if you fail to pass this test.";
+  "Student with a low memorizing ability shows symptoms of having trouble keeping score in sports games and gym activities. They also have difficulties doing mental math. These leads them to avoid situations that require understanding numbers in everydaylife";

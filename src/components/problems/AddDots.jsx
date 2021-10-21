@@ -11,7 +11,7 @@ export default function AddDots({ setAnswer, setTitle }) {
     if (!setAnswer || !setTitle) return;
     const number1 = getRandomInt(1, 9);
     const number2 = getRandomInt(1, 9);
-    setTitle("How many Dots?");
+    setTitle("How many dots are there?");
     setAnswer(number1 + number2);
     for (let i = 0; i < number1; i++) {
       const coord = getRandomCoord(300, 300, 15);
@@ -75,6 +75,7 @@ const Wrapper = styled.div`
   width: 300px;
   height: 300px;
   background-color: white;
+  border: 1px solid grey;
 `;
 const Operator = styled.div`
   width: 50px;

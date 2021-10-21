@@ -8,7 +8,7 @@ export default function Memorization({ setAnswer, setTitle }) {
   useEffect(() => {
     if (!setAnswer || !setTitle) return;
     setTitle("Remember the numbers on the screen.");
-    const length = getRandomInt(4, 8);
+    const length = getRandomInt(6, 8);
     let temp = "";
     for (let i = 0; i < length; i++) {
       temp += getRandomInt(0, 9);
@@ -45,8 +45,8 @@ const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 40px;
   font-weight: 600;
-  border-radius: 10px;
   margin-bottom: 40px;
+  border: 1px solid grey;
 `;
 const Number = styled.div`
   width: 250px;
