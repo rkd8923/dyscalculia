@@ -10,6 +10,11 @@ function AnswerInput({ inputAnswer, setInputAnswer, handleSubmit }) {
     const v = event.target.value;
     setInputAnswer(v);
   }
+  function onKeyPress(event) {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  }
 
   return (
     <AnswerWrapper>
@@ -20,8 +25,9 @@ function AnswerInput({ inputAnswer, setInputAnswer, handleSubmit }) {
         variant="outlined"
         onChange={handleValue}
         type="number"
+        onKeyPress={onKeyPress}
       />
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="outlined" color="primary" onClick={handleSubmit}>
         Submit
       </Button>
     </AnswerWrapper>
@@ -36,7 +42,7 @@ const AnswerWrapper = styled.div`
   max-width: 30rem;
   background-color: white;
   border: 1px solid gray;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   > .answer {
     font-size: 1.5rem;
     font-weight: 600;
