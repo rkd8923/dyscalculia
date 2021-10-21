@@ -1,10 +1,20 @@
 import { Button } from "@material-ui/core";
-import bg from "assets/images/background/type-description.jpg";
+import Paper from "@mui/material/Paper";
+import arithmetic from "assets/images/background/arithmetic.png";
+import comparison from "assets/images/background/comparison.png";
+import counting from "assets/images/background/counting.jpg";
+import memorization from "assets/images/background/memorization.jpg";
 import React from "react";
 import styled from "styled-components";
 import { typeText1, typeText2, typeText3, typeText4 } from "utils/text";
 
 export default function TypeDescription({ type, next }) {
+  const image = {
+    type1: counting,
+    type2: comparison,
+    type3: arithmetic,
+    type4: memorization,
+  };
   const title = {
     type1: "Counting",
     type2: "Comparison",
@@ -19,11 +29,19 @@ export default function TypeDescription({ type, next }) {
   };
   return (
     <ProblemWrapper>
-      <Title>{title[type]}</Title>
-      <Text>{text[type]}</Text>
-      <Button variant="contained" color="primary" onClick={next}>
-        start
-      </Button>
+      <StyledPaper elevation={3}>
+        <Image src={image[type]} alt="img" />
+        <Title>{title[type]}</Title>
+        <Text>{text[type]}</Text>
+        <StyledButton
+          variant="outlined"
+          size="large"
+          color="primary"
+          onClick={next}
+        >
+          start
+        </StyledButton>
+      </StyledPaper>
     </ProblemWrapper>
   );
 }
@@ -34,22 +52,28 @@ const ProblemWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url(${bg});
-  background-size: cover;
 `;
-
+const StyledPaper = styled(Paper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+`;
+const Image = styled.img`
+  width: 12rem;
+  padding: 0.5rem;
+  /* border: 1px solid grey; */
+`;
 const Title = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 600;
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin: 2rem 0;
 `;
 
 const Text = styled.div`
@@ -57,11 +81,13 @@ const Text = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 900px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 25px;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 40rem;
+  min-width: 20rem;
+
+  height: 6rem;
+  font-size: 1.4rem;
   padding: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
 `;
+const StyledButton = styled(Button)``;
