@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import bg from "assets/images/background/report.jpg";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import {
   reportDescriptionType1,
@@ -13,7 +13,6 @@ import {
 function PracticeReport({ history, location }) {
   const type = location?.state?.type;
   const test = useSelector((state) => state.practice);
-  const dispatch = useDispatch();
 
   const title = {
     type1: "Counting",
@@ -32,7 +31,20 @@ function PracticeReport({ history, location }) {
     const result = test.result;
     return [...result].reduce((a, b) => a + b, 0);
   }
-
+  function getTime() {
+    return test.time;
+  }
+  function getScore() {
+    const result =
+      getResult("type1") +
+      getResult("type2") +
+      getResult("type3") +
+      getResult("type4");
+    const time =
+      getTime("type1") + getTime("type2") + getTime("type3") + getTime("type4");
+    let score = 9 * result + (10 - time / 4);
+    return score > 0 ? score : 0;
+  }
   if (!test) {
     return <div>There are no results</div>;
   }
@@ -42,8 +54,10 @@ function PracticeReport({ history, location }) {
       <ReportPaper>
         <Title>{`${title[type]} Test Result`}</Title>
         <MainText>{description[type]}</MainText>
-        <ResultText>{`· You scored ${getResult()} out of 10 questions and took 7.1 seconds per question on average.`}</ResultText>
-
+        <ResultText>{`· You scored ${getResult()} out of 10 questions and took ${getTime()} seconds per question on average.`}</ResultText>
+        <TotalResultText>
+          {`Your total score is in the top ${getScore()}%.`}
+        </TotalResultText>
         <ButtonArea>
           <Button
             variant="contained"
@@ -105,5 +119,15 @@ const ButtonArea = styled.div`
   display: flex;
   justify-content: center;
 `;
-
+const TotalResultText = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 20px 0 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 100px;
+`;
 export default PracticeReport;

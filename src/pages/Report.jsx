@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import bg from "assets/images/background/report.jpg";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import {
   reportDescriptionType1,
@@ -12,19 +12,13 @@ import {
 
 function Report({ history }) {
   const test = useSelector((state) => state.test);
-  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   return () => {
-  //     dispatch(setInit());
-  //   };
-  // });
   function getResult(type) {
     const result = test.result[type];
     return [...result].reduce((a, b) => a + b, 0);
   }
   function getTime(type) {
-    return test[type];
+    return test.time[type];
   }
   function getScore() {
     const result =
