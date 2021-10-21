@@ -18,12 +18,20 @@ export default function Practice({ history }) {
   return (
     <Wrapper>
       <Line>
-        <TypeCard onClick={() => goToDetail("type1")}>Counting</TypeCard>
-        <TypeCard onClick={() => goToDetail("type2")}>Comparison</TypeCard>
+        <TypeCard elevation={3} onClick={() => goToDetail("type1")}>
+          Counting
+        </TypeCard>
+        <TypeCard elevation={3} onClick={() => goToDetail("type2")}>
+          Comparison
+        </TypeCard>
       </Line>
       <Line>
-        <TypeCard onClick={() => goToDetail("type3")}>Areithmetic</TypeCard>
-        <TypeCard onClick={() => goToDetail("type4")}>Memorization</TypeCard>
+        <TypeCard elevation={3} onClick={() => goToDetail("type3")}>
+          Areithmetic
+        </TypeCard>
+        <TypeCard elevation={3} onClick={() => goToDetail("type4")}>
+          Memorization
+        </TypeCard>
       </Line>
     </Wrapper>
   );
@@ -40,9 +48,9 @@ const Wrapper = styled.div`
   background-size: cover;
 `;
 const TypeCard = styled.div`
-  width: 300px;
-  height: 150px;
-  background-color: rgba(153, 51, 153, 0.5);
+  width: 19rem;
+  height: 9.5rem;
+  background-color: rgba(153, 51, 153, 0.9);
   cursor: pointer;
   color: white;
   align-items: center;
@@ -50,7 +58,11 @@ const TypeCard = styled.div`
   justify-content: center;
   font-size: 30px;
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem grey;
+  &:hover {
+    background-color: rgba(153, 51, 153, 1);
+  }
 `;
 const Line = styled.div`
   display: flex;

@@ -25,10 +25,6 @@ export default function Test({ history }) {
     }
   }, [count]);
 
-  useEffect(() => {
-    console.log(seconds);
-  }, [seconds]);
-
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
     if (count >= 9 && type >= 3) {
@@ -60,6 +56,7 @@ export default function Test({ history }) {
           next={goToNextProblem}
           allCount={allCount}
           submit={submit}
+          time={seconds}
         />
       )}
     </>

@@ -1,4 +1,6 @@
-import bg from "assets/images/background/home.jpg";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import bg from "assets/images/background/home-bg.jpg";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setInit } from "store/test";
@@ -19,13 +21,34 @@ function Home({ history }) {
   }
   return (
     <HomeWrapper>
-      <Title>Dyscalculia</Title>
-      <ButtonGroup></ButtonGroup>
-      <StyledButton onClick={goToDescription}>
-        What is Dyscalculia?
-      </StyledButton>
-      <StyledButton onClick={goToTest}>Test</StyledButton>
-      <StyledButton onClick={goToPractice}>Practice</StyledButton>
+      <StyledPaper elevation={3}>
+        <Title>DYSCALCULIA</Title>
+        <ButtonGroup></ButtonGroup>
+        <StyledButton
+          variant="outlined"
+          size="large"
+          style={{ textTransform: "none" }}
+          onClick={goToDescription}
+        >
+          What is Dyscalculia?
+        </StyledButton>
+        <StyledButton
+          variant="outlined"
+          size="large"
+          style={{ textTransform: "none" }}
+          onClick={goToTest}
+        >
+          Test
+        </StyledButton>
+        <StyledButton
+          variant="outlined"
+          size="large"
+          style={{ textTransform: "none" }}
+          onClick={goToPractice}
+        >
+          Practice
+        </StyledButton>
+      </StyledPaper>
     </HomeWrapper>
   );
 }
@@ -39,17 +62,23 @@ const HomeWrapper = styled.div`
   width: 100%;
   height: 100vh;
 `;
-
+const StyledPaper = styled(Paper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 40rem;
+  min-width: 25rem;
+  padding: 6rem 2rem;
+`;
 const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  font-weight: 600;
-  background-color: white;
-  border-radius: 2rem;
-  width: 50rem;
-  height: 10rem;
+  font-weight: 800;
+  height: 6rem;
   opacity: 0.8;
 `;
 const ButtonGroup = styled.div`
@@ -59,23 +88,13 @@ const ButtonGroup = styled.div`
   justify-content: space-around;
   margin-top: 100px;
 `;
-const StyledButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: 600;
-  background-color: #c4bcb8;
-  border-radius: 2rem;
-  width: 40rem;
-  height: 8rem;
-  opacity: 0.8;
-  cursor: pointer;
-  &:hover {
-    opacity: 1;
-  }
+
+const StyledButton = styled(Button)`
+  width: 90%;
+  height: 4rem;
+  text-transform: none;
   & + & {
-    margin-top: 40px;
+    margin-top: 3rem;
   }
 `;
 export default Home;

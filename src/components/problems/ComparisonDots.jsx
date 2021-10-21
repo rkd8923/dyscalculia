@@ -9,7 +9,9 @@ export default function ComparisonDots({ setAnswer, setTitle }) {
 
   useEffect(() => {
     if (!setAnswer || !setTitle) return;
-    setTitle("Which one has more dots? Please enter 1 or 2.");
+    setTitle(
+      "Which one has more dots? Please enter 1 if it is a left side or 2 if it is a right side"
+    );
 
     const number1 = getRandomInt(2, 12);
     let number2 = getRandomInt(1, 12);
@@ -77,4 +79,5 @@ const Wrapper = styled.div`
   width: 300px;
   height: 300px;
   background-color: white;
+  border: 1px solid grey;
 `;

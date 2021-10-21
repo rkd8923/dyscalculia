@@ -11,7 +11,7 @@ export default function AddSquares({ setAnswer, setTitle }) {
     if (!setAnswer || !setTitle) return;
     const n1 = getRandomInt(1, 9);
     const n2 = getRandomInt(1, 9);
-    setTitle("How many Dots?");
+    setTitle("How many dots are there?");
     setNumber1(n1);
     setNumber2(n2);
     setAnswer(n1 + n2);
@@ -208,4 +208,5 @@ const Wrapper = styled.div`
   width: 500px;
   height: 500px;
   background-color: white;
+  border: 1px solid grey;
 `;

@@ -12,7 +12,7 @@ function CountingDots({ colorCount, setAnswer, setTitle }) {
     const colorList = ["blue", "red", "green"];
     for (let i = 0; i < colorCount; i++) {
       const color = colorList[i];
-      const answer = getRandomInt(1, 15);
+      const answer = getRandomInt(10, 20);
       i === 0 && setAnswer(answer);
       for (let j = 0; j < answer; j++) {
         const coord = getRandomCoord(500, 500, 20);
@@ -49,4 +49,6 @@ const Wrapper = styled.div`
   width: 500px;
   height: 500px;
   background-color: white;
+  border: 1px solid grey;
+  border: 1px solid grey;
 `;
