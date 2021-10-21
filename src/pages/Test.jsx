@@ -1,18 +1,33 @@
 import ProblemLayoutV2 from "components/ProblemLayoutV2";
 import TypeDescription from "components/TypeDescription";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setResult } from "store/test";
-/*
-  type1, ... , type4
-*/
+import { useStopwatch } from "react-timer-hook";
+import { setResult, setTime } from "store/test";
+
+const typeList = ["type1", "type2", "type3", "type4"];
 export default function Test({ history }) {
   const dispatch = useDispatch();
-  const typeList = ["type1", "type2", "type3", "type4"];
+  const { seconds, start, pause, reset } = useStopwatch({
+    autoStart: false,
+  });
   const [type, setType] = useState(0);
   const [count, setCount] = useState(-1);
-  const [isEnd, setIsEnd] = useState(false);
   const [allCount, setAllCount] = useState(1);
+
+  useEffect(() => {
+    if (count === 0) {
+      reset();
+      start();
+    } else if (count === -1) {
+      pause();
+      dispatch(setTime(typeList[type], seconds));
+    }
+  }, [count]);
+
+  useEffect(() => {
+    console.log(seconds);
+  }, [seconds]);
 
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
@@ -30,8 +45,6 @@ export default function Test({ history }) {
     const result = +answer === +inputAnswer;
     dispatch(setResult(typeList[type], count, result));
   }
-
-  if (isEnd) return <div>isEnd</div>;
 
   return (
     <>
