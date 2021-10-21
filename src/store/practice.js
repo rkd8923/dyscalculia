@@ -15,6 +15,7 @@ export const setTime = (time) => ({
 const initialState = {
   count: 0,
   result: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  time: 0,
 };
 
 const practice = (state = initialState, action) => {

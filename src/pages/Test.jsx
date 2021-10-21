@@ -20,18 +20,21 @@ export default function Test({ history }) {
       reset();
       start();
     } else if (count === -1) {
-      pause();
-      dispatch(setTime(typeList[type], seconds));
+      reset();
     }
   }, [count]);
 
   function goToNextProblem() {
     setAllCount((prev) => prev + 1);
-    if (count >= 9 && type >= 3) {
-      history.push("/report");
-    } else if (count >= 9) {
-      setType((prev) => prev + 1);
-      setCount(-1);
+    if (count >= 9) {
+      pause();
+      dispatch(setTime(typeList[type], seconds));
+      if (type >= 3) {
+        history.push("/report");
+      } else {
+        setType((prev) => prev + 1);
+        setCount(-1);
+      }
     } else {
       setCount((prev) => prev + 1);
     }
