@@ -21,10 +21,10 @@ const initialState = {
     type4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
   time: {
-    type1: -1,
-    type2: -1,
-    type3: -1,
-    type4: -1,
+    type1: 0,
+    type2: 0,
+    type3: 0,
+    type4: 0,
   },
 };
 
@@ -36,6 +36,7 @@ const test = (state = initialState, action) => {
         const temp = state.result[type].slice();
         temp[index] += 1;
         return {
+          ...state,
           count: state.count + 1,
           result: {
             ...state.result,

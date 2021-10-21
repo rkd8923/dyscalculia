@@ -62,7 +62,7 @@ function ProblemLayoutV2({ type, count, next, allCount, submit, time }) {
           <TypeName>{typeName[type]}</TypeName>
           <No>{allCount}</No>
           <SecondWrapper>
-            <Second>{Math.round(time / 10)}</Second>
+            <Second>{Math.floor(time / 10)}</Second>
             <Second>{time % 10}</Second>
           </SecondWrapper>
         </Header>
