@@ -8,7 +8,9 @@ import AddSquares from "./problems/AddSquares";
 import AnswerInput from "./problems/AnswerInput";
 import ComparisonDots from "./problems/ComparisonDots";
 import CountingDots from "./problems/CountingDots";
+import DivSquares from "./problems/DivSquares";
 import Memorization from "./problems/Memorization";
+import MulDots from "./problems/MulDots";
 import SubSquares from "./problems/SubSquares";
 
 function ProblemLayoutV2({ type, count, next, allCount, submit, time }) {
@@ -41,6 +43,8 @@ function ProblemLayoutV2({ type, count, next, allCount, submit, time }) {
         <AddDots setAnswer={setAnswer} setTitle={setTitle} />,
         <AddSquares setAnswer={setAnswer} setTitle={setTitle} />,
         <SubSquares setAnswer={setAnswer} setTitle={setTitle} />,
+        <MulDots setAnswer={setAnswer} setTitle={setTitle} />,
+        <DivSquares setAnswer={setAnswer} setTitle={setTitle} />,
       ],
       type4: [<Memorization setAnswer={setAnswer} setTitle={setTitle} />],
     };

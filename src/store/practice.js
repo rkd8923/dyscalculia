@@ -25,9 +25,7 @@ const practice = (state = initialState, action) => {
 
       if (result) {
         const temp = state.result.slice();
-        console.log(1, temp);
         temp[index] += 1;
-        console.log(2, temp);
         return {
           count: state.count + 1,
           result: [...temp],

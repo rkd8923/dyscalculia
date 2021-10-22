@@ -4,8 +4,6 @@ import React from "react";
 import styled from "styled-components";
 
 function AnswerInput({ inputAnswer, setInputAnswer, handleSubmit }) {
-  // const [value, setValue] = useState("");
-
   function handleValue(event) {
     const v = event.target.value;
     setInputAnswer(v);
