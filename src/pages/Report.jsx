@@ -84,6 +84,7 @@ function Report({ history }) {
             )} at this category.`}
           </MainText>
         </Group>
+        <Divider />
         <Group>
           <Title>Comparison Test Result</Title>
           <MainText>{reportDescriptionType2}</MainText>
@@ -105,6 +106,7 @@ function Report({ history }) {
             )} at this category.`}
           </MainText>
         </Group>
+        <Divider />
         <Group>
           <Title>Arithmetic Test Result</Title>
           <MainText>{reportDescriptionType3}</MainText>
@@ -126,6 +128,7 @@ function Report({ history }) {
             )} at this category.`}
           </MainText>
         </Group>
+        <Divider />
         <Group>
           <Title>Memorization Test Result</Title>
           <MainText>{reportDescriptionType4}</MainText>
@@ -147,6 +150,7 @@ function Report({ history }) {
             )} at this category.`}
           </MainText>
         </Group>
+        <Divider />
         <Group>
           <Title>Total Test Result</Title>
           <TotalResultText>
@@ -236,4 +240,11 @@ const ButtonArea = styled.div`
   margin-top: 2rem;
 `;
 const StyledButton = styled(Button)``;
+
+const Divider = styled.div`
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid lightGrey;
+  margin: 1rem 0;
+`;
 export default Report;
