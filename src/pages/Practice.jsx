@@ -1,5 +1,5 @@
 import bg from "assets/images/background/practice.jpg";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setInit } from "store/practice";
 import styled from "styled-components";
@@ -27,7 +27,7 @@ export default function Practice({ history }) {
       </Line>
       <Line>
         <TypeCard elevation={3} onClick={() => goToDetail("type3")}>
-          Areithmetic
+          Arithmetic
         </TypeCard>
         <TypeCard elevation={3} onClick={() => goToDetail("type4")}>
           Memorization

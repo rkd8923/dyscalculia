@@ -2,20 +2,14 @@ import { Button } from "@material-ui/core";
 import Paper from "@mui/material/Paper";
 import bg from "assets/images/background/report.jpg";
 import styled from "styled-components";
-import { dyscalculiaText, reference, referenceLink } from "utils/text";
+import { visionText } from "utils/text";
 
-function Description({ history }) {
+function OurVision({ history }) {
   return (
     <Wrapper>
       <StyledPaper elevation={3}>
-        <Title>Definition of Dyscalculia</Title>
-        <MainText>{dyscalculiaText}</MainText>
-        <MainText>
-          {`${reference} `}
-          <a href={referenceLink} target="_blanc">
-            {referenceLink}
-          </a>
-        </MainText>
+        <Title>Our Vision</Title>
+        <MainText>{visionText}</MainText>
         <ButtonArea>
           <StyledButton
             variant="outlined"
@@ -64,4 +58,4 @@ const ButtonArea = styled.div`
   margin-top: 3rem;
 `;
 const StyledButton = styled(Button)``;
-export default Description;
+export default OurVision;

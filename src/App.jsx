@@ -1,9 +1,9 @@
 import PracticeDetail from "pages/PracticeDetail";
-import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import {
   Description,
   Home,
+  OurVision,
   Practice,
   PracticeReport,
   Report,
@@ -19,6 +19,7 @@ function App() {
       <Route exact path="/practice/report" component={PracticeReport} />
       <Route exact path="/practice" component={Practice} />
       <Route exact path="/report" component={Report} />
+      <Route exact path="/vision" component={OurVision} />
     </BrowserRouter>
   );
 }

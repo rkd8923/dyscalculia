@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import bg from "assets/images/background/home-bg.jpg";
-import React from "react";
 import { useDispatch } from "react-redux";
 import { setInit } from "store/test";
 import styled from "styled-components";
@@ -19,10 +18,13 @@ function Home({ history }) {
   function goToPractice() {
     history.push("/practice");
   }
+  function goToOurVision() {
+    history.push("/vision");
+  }
   return (
     <HomeWrapper>
       <StyledPaper elevation={3}>
-        <Title>DYSCALCULIA</Title>
+        <Title>{`Dyscalculia\nNavigator App`}</Title>
         <ButtonGroup></ButtonGroup>
         <StyledButton
           variant="outlined"
@@ -47,6 +49,14 @@ function Home({ history }) {
           onClick={goToPractice}
         >
           Practice
+        </StyledButton>
+        <StyledButton
+          variant="outlined"
+          size="large"
+          style={{ textTransform: "none" }}
+          onClick={goToOurVision}
+        >
+          Our Vision
         </StyledButton>
       </StyledPaper>
     </HomeWrapper>
@@ -80,13 +90,15 @@ const Title = styled.div`
   font-weight: 800;
   height: 6rem;
   opacity: 0.8;
+  white-space: pre-line;
+  text-align: center;
 `;
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-top: 100px;
+  margin-top: 80px;
 `;
 
 const StyledButton = styled(Button)`
@@ -94,7 +106,7 @@ const StyledButton = styled(Button)`
   height: 4rem;
   text-transform: none;
   & + & {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
 `;
 export default Home;

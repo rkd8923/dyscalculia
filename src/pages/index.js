@@ -1,5 +1,6 @@
 export { default as Description } from "./Description";
 export { default as Home } from "./Home";
+export { default as OurVision } from "./OurVision";
 export { default as Practice } from "./Practice";
 export { default as PracticeDetail } from "./PracticeDetail";
 export { default as PracticeReport } from "./PracticeReport";
